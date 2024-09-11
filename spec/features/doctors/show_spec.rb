@@ -29,9 +29,18 @@ RSpec.describe "Doctor Show Page", type: :feature do
       end
 
       it "displays the doctor's patients" do 
-        save_and_open_page
         expect(page).to have_content(@kendrick.name)
         expect(page).to have_content(@odb.name)
+      end
+
+      it "removes a patient from a doctors work load" do 
+        expect(page).to have_content(@kendrick.name)
+
+        within("li[patient_id='#{@kendrick.id}']") do 
+          click_button "Remove Patient"
+        end
+
+        expect(page).to_not have_content(@kendrick.name)
       end
     end
   end

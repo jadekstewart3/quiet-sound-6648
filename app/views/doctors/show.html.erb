@@ -5,6 +5,6 @@
 
 <h1>Patients:</h1>
 <% @doctor.patients.each do |patient| %>
- <li> <%= patient.name %> </li>
+ <li patient_id="<%= patient.id %>"> <%= patient.name %>  <%=button_to "Remove Patient", doctor_patient_path(@doctor, patient), method: :delete%></li>
  <br>
 <% end %>
