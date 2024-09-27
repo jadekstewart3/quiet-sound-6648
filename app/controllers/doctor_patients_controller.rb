@@ -5,6 +5,8 @@ class DoctorPatientsController < ApplicationController
 
     doctor.patients.delete(patient)
 
-    redirect_to doctor_path(doctor), notice: "#{patient.name} has been removed from Dr. #{doctor.name}'s caseload."
+    flash[:notice] = "#{patient.name} has been removed from Dr. #{doctor.name}'s caseload."
+    
+    redirect_to doctor_path(doctor)
   end
 end

@@ -8,3 +8,8 @@
  <li patient_id="<%= patient.id %>"> <%= patient.name %>  <%=button_to "Remove Patient", doctor_patient_path(@doctor, patient), method: :delete%></li>
  <br>
 <% end %>
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
